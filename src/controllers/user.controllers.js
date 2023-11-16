@@ -76,15 +76,14 @@ const change=catchError(async(req,res)=>{
     const emailCode= await EmailCode.findOne({where:{code}});
     if (!emailCode) return res.status(401).json({message: "code not fount"});
 
-    console.log(emailCode);
-    console.log(encripted);
+    
     
     const user= await User.update({
         password:encripted
     },
     { where: {id: emailCode.userId},returning:true}
     ) ;
-    console.log(user);
+ 
     if(user[0] === 0) return res.sendStatus(404);
     return res.json(user[1][0])
    })
