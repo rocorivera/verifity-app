@@ -23,6 +23,7 @@ const create = catchError(async(req, res) => {
         image,
         
     });
+    
 
 const code = require('crypto').randomBytes(32).toString("hex")
 
