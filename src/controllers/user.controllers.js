@@ -48,7 +48,7 @@ const link = `${frontBaseUrl}/auth/verify_email/${code}`
 const change=catchError(async(req,res)=>{
     const{email,frontBaseUrl}=req.body;
     const user= await User.findOne({where:{email}});
-    console.log(user);
+   
     if(!user)return res.status(401).json({message:"invalid credentials"});
    
     const code= require('crypto').randomBytes(32).toString("hex");
