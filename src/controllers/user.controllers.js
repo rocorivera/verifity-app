@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt');
 const sendEmail = require('../utils/sendEmail');
 const EmailCode = require('../models/EmailCode');
 const jwt =require('jsonwebtoken');
+
+
 const getAll = catchError(async(req, res) => {
     const results = await User.findAll();
     return res.json(results);
